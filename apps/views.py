@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.template import loader
+
 from models import Applications
 
 # Create your views here.
@@ -12,7 +14,9 @@ def detail(request):
 
 
 def index(request):
-    latest_question_list = Applications.objects.order_by('-careted_date')[:5]
-    output = ', '.join([q.question_text for q in latest_question_list])
-    # return HttpResponse(output)
-    return "Dashboard"
+    apps = Applications.objects.order_by('-created_date')
+    template = loader.get_template('apps/index.html')
+    context = {
+        'apps': apps,
+    }
+    return HttpResponse(template.render(context, request))
