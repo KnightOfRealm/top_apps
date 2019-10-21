@@ -9,9 +9,13 @@ https://docs.djangoproject.com/en/1.8/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.8/ref/settings/
 """
-
+import django_heroku
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
