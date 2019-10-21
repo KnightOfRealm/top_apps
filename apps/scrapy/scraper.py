@@ -26,8 +26,3 @@ class Scrapy():
                 rating = row.find('div',{"class":"pf5lIe"})\
                                 .find('div',{"role":"img"})['aria-label'],
                 )
-            if obj:
-                apps.append(obj)
-            elif created:
-                apps.append(created)
-        print(apps)
