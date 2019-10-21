@@ -3,8 +3,12 @@ from django.http import HttpResponse
 from models import Applications
 
 # Create your views here.
-def detail(request, app_pkg):
-    return HttpResponse("You're looking at question : %s" %(app_pkg))
+def detail(request):
+    pkg = request.GET.get('pkg')
+    app = Applications.objects.filter(package=pkg)
+    if app.exists():
+        return HttpResponse("FOUND : %s" %(app[0].__dict__))
+    return HttpResponse("Please check the package name : %s" %(request.GET.get('pkg')))
 
 
 def index(request):
