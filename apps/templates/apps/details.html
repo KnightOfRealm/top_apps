@@ -1,0 +1,28 @@
+
+{% load static %}
+<html>
+    <head>
+        <title>App Details</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+        <div>
+            <h1 style="text-align: center;"><a href="/">App Details</a></h1>
+        </div>
+
+        <div class="card text-center">
+            <div class="card-header">
+                {{app.name}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{app.package}}</h5>
+                <p class="card-text">{{app.rating}}</p>
+                <a href="/" class="btn btn-primary">Go Back</a>
+            </div>
+            <div class="card-footer text-muted">
+                {{app.company}}
+            </div>
+        </div>
+    </body>
+</html>
